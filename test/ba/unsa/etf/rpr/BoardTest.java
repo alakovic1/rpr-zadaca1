@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTest {
 
-    @Test
+    /*@Test
     // Is the board usable after isCheck
     void someLegalMoves() {
         Board b = new Board();
@@ -265,5 +265,5 @@ class BoardTest {
                     b.move("E2", "D3");
                 }
         );
-    }
+    }*/
 }
