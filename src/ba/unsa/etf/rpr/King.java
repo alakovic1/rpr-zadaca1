@@ -53,5 +53,4 @@ public class King extends ChessPiece {
         }
         else this.position=position;
     }
-
 }

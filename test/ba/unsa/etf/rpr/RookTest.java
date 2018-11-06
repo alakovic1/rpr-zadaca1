@@ -4,31 +4,30 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class KnightTest {
-
+class RookTest {
     @Test
     void move() {
-        Knight k = new Knight("B1", ChessPiece.Color.WHITE);
+        Rook r = new Rook("D1", ChessPiece.Color.WHITE);
         assertDoesNotThrow(
-                () -> k.move("C3")
+                () -> r.move("D6")
         );
 
     }
 
     @Test
     void move2() {
-        Knight k = new Knight("D4", ChessPiece.Color.WHITE);
+        Rook r = new Rook("H4", ChessPiece.Color.WHITE);
         assertDoesNotThrow(
-                () -> k.move("E6")
+                () -> r.move("C4")
         );
 
     }
 
     @Test
     void move3() {
-        Knight k = new Knight("G4", ChessPiece.Color.WHITE);
+        Rook r = new Rook("G8", ChessPiece.Color.WHITE);
         assertDoesNotThrow(
-                () -> k.move("D3")
+                () -> r.move("G2")
         );
 
     }
@@ -37,7 +36,7 @@ class KnightTest {
     void constructor1() {
         assertThrows(
                 IllegalArgumentException.class,
-                () -> new Knight("I2", ChessPiece.Color.WHITE)
+                () -> new Rook("I2", ChessPiece.Color.WHITE)
         );
     }
 
@@ -45,7 +44,7 @@ class KnightTest {
     void constructor2() {
         assertThrows(
                 IllegalArgumentException.class,
-                () -> new Knight("B9", ChessPiece.Color.WHITE)
+                () -> new Rook("B9", ChessPiece.Color.WHITE)
         );
     }
 
@@ -53,34 +52,34 @@ class KnightTest {
     void constructor3() {
         assertThrows(
                 IllegalArgumentException.class,
-                () -> new Knight("", ChessPiece.Color.WHITE)
+                () -> new Rook("", ChessPiece.Color.WHITE)
         );
     }
 
     @org.junit.jupiter.api.Test
     void moveIllegal1() {
-        Knight k = new Knight("C1", ChessPiece.Color.BLACK);
+        Rook r = new Rook("C1", ChessPiece.Color.BLACK);
         assertThrows(
                 IllegalArgumentException.class,
-                () -> k.move("C0")
+                () -> r.move("C0")
         );
     }
 
     @org.junit.jupiter.api.Test
     void moveIllegal2() {
-        Knight k = new Knight("H1", ChessPiece.Color.BLACK);
+        Rook r = new Rook("H1", ChessPiece.Color.BLACK);
         assertThrows(
                 IllegalArgumentException.class,
-                () -> k.move("I1")
+                () -> r.move("I1")
         );
     }
 
     @org.junit.jupiter.api.Test
     void moveIllegal3() {
-        Knight k = new Knight("C1", ChessPiece.Color.BLACK);
+        Rook r = new Rook("C1", ChessPiece.Color.BLACK);
         assertThrows(
                 IllegalArgumentException.class,
-                () -> k.move("")
+                () -> r.move("")
         );
     }
 }
