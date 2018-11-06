@@ -25,9 +25,9 @@ class RookTest {
 
     @Test
     void move3() {
-        Rook r = new Rook("G8", ChessPiece.Color.WHITE);
+        Rook r = new Rook("D4", ChessPiece.Color.WHITE);
         assertDoesNotThrow(
-                () -> r.move("G2")
+                () -> r.move("D1")
         );
 
     }

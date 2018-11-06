@@ -47,9 +47,11 @@ public class Rook extends ChessPiece{
         } else if (position.charAt(0) > 'A' || position.charAt(0) < 'H') {
             if (position.charAt(1) < '1' || position.charAt(1) > '8') throw new IllegalArgumentException();
         } else throw new IllegalArgumentException();
-        if((this.position.charAt(0)-position.charAt(0))!=2 || (this.position.charAt(0)-position.charAt(0))!=-2 || (this.position.charAt(0)-position.charAt(0))!=1 || (this.position.charAt(0)-position.charAt(0))!=-1) {} /*throw new IllegalChessMoveException();*/
-        else if((this.position.charAt(0)-position.charAt(0))==2 || (this.position.charAt(0)-position.charAt(0))==-2 || (this.position.charAt(0)-position.charAt(0))==1 || (this.position.charAt(0)-position.charAt(0))==-1){
-            if((this.position.charAt(1)-position.charAt(1))!=2 || (this.position.charAt(1)-position.charAt(1))!=-2 || (this.position.charAt(1)-position.charAt(1))!=1 || (this.position.charAt(1)-position.charAt(1))!=-1) {} /*throw new IllegalChessMoveException();*/
+        if(this.position.charAt(0)==position.charAt(0)){
+            if((this.position.charAt(1)-position.charAt(1)) > 8 && (this.position.charAt(1)-position.charAt(1)) < -8){} /*throw new IllegalChessMoveException();*/
+        }
+        else if((this.position.charAt(0)-position.charAt(0)) < 8 && (this.position.charAt(0)-position.charAt(0)) > -8){
+            if(this.position.charAt(1)!=position.charAt(1)) {} /*throw new IllegalChessMoveException();*/
         }
         else this.position=position;
     }
