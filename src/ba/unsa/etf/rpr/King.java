@@ -5,8 +5,8 @@ public class King extends ChessPiece {
     public ChessPiece.Color color;
 
     public King(String position, ChessPiece.Color color) {
-        if (position.length() != 2) throw new IllegalArgumentException();
-        if (position.charAt(0) > 'a' || position.charAt(0) < 'h') {
+        if (position.length() != 2) throw new IllegalArgumentException(); //da li je dobra duzina stringa
+        if (position.charAt(0) > 'a' || position.charAt(0) < 'h') { //ako su mala slova pretvaramo u velika pa poredimo
             Character novi = position.charAt(0);
             String manji = Character.toString(novi);
             manji = manji.toUpperCase();
@@ -34,8 +34,8 @@ public class King extends ChessPiece {
 
     @Override
     public void move(String position) throws IllegalChessMoveException {
-        if (position.length() != 2) throw new IllegalArgumentException();
-        if (position.charAt(0) > 'a' || position.charAt(0) < 'h') {
+        if (position.length() != 2) throw new IllegalArgumentException(); //da li je dobra duzina stringa
+        if (position.charAt(0) > 'a' || position.charAt(0) < 'h') { //ako su mala slova pretvaramo u velika pa poredimo
             Character novi = position.charAt(0);
             String manji = Character.toString(novi);
             manji = manji.toUpperCase();

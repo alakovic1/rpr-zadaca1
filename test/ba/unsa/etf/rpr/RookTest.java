@@ -57,6 +57,14 @@ class RookTest {
     }
 
     @org.junit.jupiter.api.Test
+    void constructorMalim() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Rook("k1", ChessPiece.Color.WHITE)
+        );
+    }
+
+    @org.junit.jupiter.api.Test
     void moveIllegal1() {
         Rook r = new Rook("C1", ChessPiece.Color.BLACK);
         assertThrows(
@@ -80,6 +88,15 @@ class RookTest {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> r.move("")
+        );
+    }
+
+    @org.junit.jupiter.api.Test
+    void moveIllegalMalim() {
+        Rook r = new Rook("C1", ChessPiece.Color.BLACK);
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> r.move("a9")
         );
     }
 

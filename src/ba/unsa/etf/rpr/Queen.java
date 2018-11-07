@@ -5,8 +5,8 @@ public class Queen extends ChessPiece {
     public ChessPiece.Color color;
 
     public Queen(String position, ChessPiece.Color color) {
-        if (position.length() != 2) throw new IllegalArgumentException();
-        if (position.charAt(0) > 'a' || position.charAt(0) < 'h') {
+        if (position.length() != 2) throw new IllegalArgumentException(); //da li je dobra duzina stringa
+        if (position.charAt(0) > 'a' || position.charAt(0) < 'h') { //ako su mala slova pretvaramo u velika pa poredimo
             Character novi = position.charAt(0);
             String manji = Character.toString(novi);
             manji = manji.toUpperCase();
@@ -34,8 +34,8 @@ public class Queen extends ChessPiece {
 
     @Override
     public void move(String position) throws IllegalChessMoveException {
-        if (position.length() != 2) throw new IllegalArgumentException();
-        if (position.charAt(0) > 'a' || position.charAt(0) < 'h') {
+        if (position.length() != 2) throw new IllegalArgumentException(); //da li je dobra duzina stringa
+        if (position.charAt(0) > 'a' || position.charAt(0) < 'h') { //ako su mala slova pretvaramo u velika pa poredimo
             Character novi = position.charAt(0);
             String manji = Character.toString(novi);
             manji = manji.toUpperCase();
@@ -47,13 +47,13 @@ public class Queen extends ChessPiece {
         } else if (position.charAt(0) > 'A' || position.charAt(0) < 'H') {
             if (position.charAt(1) < '1' || position.charAt(1) > '8') throw new IllegalArgumentException();
         } else throw new IllegalArgumentException();
-        if(this.position.charAt(0) == position.charAt(0)) this.position=position;
-        else if(this.position.charAt(1) == position.charAt(1)) this.position=position;
-        else{
+        if (this.position.charAt(0) == position.charAt(0)) this.position = position;
+        else if (this.position.charAt(1) == position.charAt(1)) this.position = position;
+        else {
             int razlika1 = Math.abs(this.position.charAt(0) - position.charAt(0));
             int razlika2 = Math.abs(this.position.charAt(1) - position.charAt(1));
-            if(razlika1 != razlika2) throw new IllegalChessMoveException();
-            else this.position=position;
+            if (razlika1 != razlika2) throw new IllegalChessMoveException();
+            else this.position = position;
         }
     }
 

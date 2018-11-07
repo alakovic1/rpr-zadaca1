@@ -84,6 +84,14 @@ class PawnTest {
     }
 
     @org.junit.jupiter.api.Test
+    void constructorMalim() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Pawn("k1", ChessPiece.Color.WHITE)
+        );
+    }
+
+    @org.junit.jupiter.api.Test
     void moveIllegal1() {
         Pawn p = new Pawn("C1", ChessPiece.Color.BLACK);
         assertThrows(
@@ -107,6 +115,15 @@ class PawnTest {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> p.move("")
+        );
+    }
+
+    @org.junit.jupiter.api.Test
+    void moveIllegalMalim() {
+        Pawn p = new Pawn("C1", ChessPiece.Color.BLACK);
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> p.move("a9")
         );
     }
 

@@ -93,4 +93,12 @@ class QueenTest {
                 () -> q.move("")
         );
     }
+
+    @org.junit.jupiter.api.Test
+    void moveTwo() {
+        Queen q = new Queen("A2", ChessPiece.Color.BLACK);
+        assertThrows( IllegalChessMoveException.class,
+                () -> q.move("B8")
+        );
+    }
 }

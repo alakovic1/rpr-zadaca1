@@ -13,6 +13,14 @@ class KingTest {
     }
 
     @org.junit.jupiter.api.Test
+    void move() {
+        King k = new King("B7", ChessPiece.Color.WHITE);
+        assertDoesNotThrow(
+                () -> k.move("B8")
+        );
+    }
+
+    @org.junit.jupiter.api.Test
     void moveTwo() {
         King k = new King("C2", ChessPiece.Color.BLACK);
         assertThrows( IllegalChessMoveException.class,
@@ -53,6 +61,14 @@ class KingTest {
     }
 
     @org.junit.jupiter.api.Test
+    void constructorMalim() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new King("k1", ChessPiece.Color.WHITE)
+        );
+    }
+
+    @org.junit.jupiter.api.Test
     void moveIllegal1() {
         King k = new King("C1", ChessPiece.Color.BLACK);
         assertThrows(
@@ -76,6 +92,15 @@ class KingTest {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> k.move("")
+        );
+    }
+
+    @org.junit.jupiter.api.Test
+    void moveIllegalMalim() {
+        King k = new King("C1", ChessPiece.Color.BLACK);
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> k.move("a9")
         );
     }
 }

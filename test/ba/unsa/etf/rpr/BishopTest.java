@@ -75,6 +75,14 @@ class BishopTest {
     }
 
     @org.junit.jupiter.api.Test
+    void constructorMalim() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Bishop("k1", ChessPiece.Color.WHITE)
+        );
+    }
+
+    @org.junit.jupiter.api.Test
     void moveIllegal1() {
         Bishop b = new Bishop("C1", ChessPiece.Color.BLACK);
         assertThrows(
@@ -98,6 +106,15 @@ class BishopTest {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> b.move("")
+        );
+    }
+
+    @org.junit.jupiter.api.Test
+    void moveIllegalMalim() {
+        Bishop b = new Bishop("C1", ChessPiece.Color.BLACK);
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> b.move("a9")
         );
     }
 

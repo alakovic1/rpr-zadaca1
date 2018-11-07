@@ -76,6 +76,14 @@ class KnightTest {
     }
 
     @org.junit.jupiter.api.Test
+    void constructorMalim() {
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Knight("k1", ChessPiece.Color.WHITE)
+        );
+    }
+
+    @org.junit.jupiter.api.Test
     void moveIllegal1() {
         Knight k = new Knight("C1", ChessPiece.Color.BLACK);
         assertThrows(
@@ -99,6 +107,15 @@ class KnightTest {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> k.move("")
+        );
+    }
+
+    @org.junit.jupiter.api.Test
+    void moveIllegalMalim() {
+        Knight k = new Knight("C1", ChessPiece.Color.BLACK);
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> k.move("a9")
         );
     }
 
