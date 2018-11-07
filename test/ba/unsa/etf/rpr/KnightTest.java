@@ -83,4 +83,12 @@ class KnightTest {
                 () -> k.move("")
         );
     }
+
+    @org.junit.jupiter.api.Test
+    void moveTwo() {
+        Knight k = new Knight("A2", ChessPiece.Color.BLACK);
+        assertThrows( IllegalChessMoveException.class,
+                () -> k.move("E2")
+        );
+    }
 }
