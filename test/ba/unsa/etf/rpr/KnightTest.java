@@ -28,7 +28,7 @@ class KnightTest {
     void move3() {
         Knight k = new Knight("G4", ChessPiece.Color.WHITE);
         assertDoesNotThrow(
-                () -> k.move("D3")
+                () -> k.move("E3")
         );
 
     }

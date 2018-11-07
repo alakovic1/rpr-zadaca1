@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr;
 
-public class Rook extends ChessPiece{
+public class Rook extends ChessPiece {
     public String position;
     public ChessPiece.Color color;
 
@@ -33,7 +33,7 @@ public class Rook extends ChessPiece{
     }
 
     @Override
-    public void move(String position) throws IllegalChessMoveException{
+    public void move(String position) throws IllegalChessMoveException {
         if (position.length() != 2) throw new IllegalArgumentException();
         if (position.charAt(0) > 'a' || position.charAt(0) < 'h') {
             Character novi = position.charAt(0);
@@ -49,6 +49,10 @@ public class Rook extends ChessPiece{
         } else throw new IllegalArgumentException();
         if ((this.position.charAt(0) == position.charAt(0))) {
             if ((this.position.charAt(0) - position.charAt(0)) != 0) throw new IllegalChessMoveException();
+            this.position = position;
+        }
+        if ((this.position.charAt(1) == position.charAt(1))) {
+            if ((this.position.charAt(1) - position.charAt(1)) != 0) throw new IllegalChessMoveException();
             this.position = position;
         }
         if (this.position.charAt(1) - position.charAt(1) > 0) {

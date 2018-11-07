@@ -33,7 +33,7 @@ public class Knight extends ChessPiece{
     }
 
     @Override
-    public void move(String position) throws IllegalArgumentException/*, IllegalChessMoveException*/{
+    public void move(String position) throws IllegalChessMoveException{
         if (position.length() != 2) throw new IllegalArgumentException();
         if (position.charAt(0) > 'a' || position.charAt(0) < 'h') {
             Character novi = position.charAt(0);
@@ -47,10 +47,27 @@ public class Knight extends ChessPiece{
         } else if (position.charAt(0) > 'A' || position.charAt(0) < 'H') {
             if (position.charAt(1) < '1' || position.charAt(1) > '8') throw new IllegalArgumentException();
         } else throw new IllegalArgumentException();
-        if((this.position.charAt(0)-position.charAt(0))!=2 || (this.position.charAt(0)-position.charAt(0))!=-2 || (this.position.charAt(0)-position.charAt(0))!=1 || (this.position.charAt(0)-position.charAt(0))!=-1) {} /*throw new IllegalChessMoveException();*/
-        else if((this.position.charAt(0)-position.charAt(0))==2 || (this.position.charAt(0)-position.charAt(0))==-2 || (this.position.charAt(0)-position.charAt(0))==1 || (this.position.charAt(0)-position.charAt(0))==-1){
-            if((this.position.charAt(1)-position.charAt(1))!=2 || (this.position.charAt(1)-position.charAt(1))!=-2 || (this.position.charAt(1)-position.charAt(1))!=1 || (this.position.charAt(1)-position.charAt(1))!=-1) {} /*throw new IllegalChessMoveException();*/
+
+        if ((this.position.charAt(0) == position.charAt(0))) {
+            if ((this.position.charAt(0) - position.charAt(0)) != 0) throw new IllegalChessMoveException();
+            this.position = position;
         }
-        else this.position=position;
+        else if (this.position.charAt(0) - position.charAt(0) > 0) {
+            if ((this.position.charAt(1) - position.charAt(1)) != 2 && this.position.charAt(0) - position.charAt(0) !=1) throw new IllegalChessMoveException();
+            else this.position = position;
+        }
+        else if (this.position.charAt(0) - position.charAt(0) < 0) {
+            if ((this.position.charAt(1) - position.charAt(1)) != -2) throw new IllegalChessMoveException();
+            else this.position = position;
+        }
+        else if (this.position.charAt(1) - position.charAt(1) > 0) {
+            if ((this.position.charAt(0) - position.charAt(0)) != -2) throw new IllegalChessMoveException();
+            else this.position = position;
+        }
+        else if (this.position.charAt(1) - position.charAt(1) < 0) {
+            if ((this.position.charAt(0) - position.charAt(0)) != -1) throw new IllegalChessMoveException();
+            else this.position = position;
+        }
+        else this.position = position;
     }
 }
