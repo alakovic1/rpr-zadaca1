@@ -49,11 +49,11 @@ public class Bishop extends ChessPiece{
         } else throw new IllegalArgumentException();
         if(this.position.charAt(0) == position.charAt(0)) throw new IllegalChessMoveException();
         else if(this.position.charAt(1) == position.charAt(1)) throw new IllegalChessMoveException();
-        else{
+        else if((this.position.charAt(0) != position.charAt(0) && (this.position.charAt(1) != position.charAt(1)))){
             int razlika1 = Math.abs(this.position.charAt(0) - position.charAt(0));
             int razlika2 = Math.abs(this.position.charAt(1) - position.charAt(1));
             if(razlika1 != razlika2) throw new IllegalChessMoveException();
             else this.position=position;
-        }
+        }else throw new IllegalChessMoveException();
     }
 }

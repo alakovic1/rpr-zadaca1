@@ -14,7 +14,7 @@ class QueenTest {
     @org.junit.jupiter.api.Test
     void move() {
         Queen q = new Queen("C2", ChessPiece.Color.BLACK);
-        assertThrows( IllegalChessMoveException.class,
+        assertDoesNotThrow(
                 () -> q.move("H7")
         );
     }
@@ -22,7 +22,7 @@ class QueenTest {
     @org.junit.jupiter.api.Test
     void move2() {
         Queen q = new Queen("F1", ChessPiece.Color.BLACK);
-        assertThrows( IllegalChessMoveException.class,
+        assertDoesNotThrow(
                 () -> q.move("C4")
         );
     }
@@ -30,7 +30,7 @@ class QueenTest {
     @org.junit.jupiter.api.Test
     void move4() {
         Queen q = new Queen("E5", ChessPiece.Color.BLACK);
-        assertThrows( IllegalChessMoveException.class,
+        assertDoesNotThrow(
                 () -> q.move("A1")
         );
     }
