@@ -47,12 +47,13 @@ public class Rook extends ChessPiece {
         } else if (position.charAt(0) > 'A' || position.charAt(0) < 'H') {
             if (position.charAt(1) < '1' || position.charAt(1) > '8') throw new IllegalArgumentException();
         } else throw new IllegalArgumentException();
-        if ((this.position.charAt(0) == position.charAt(0))) {
+        /*if ((this.position.charAt(0) == position.charAt(0))) {
             if ((this.position.charAt(0) - position.charAt(0)) != 0) throw new IllegalChessMoveException();
             this.position = position;
         }
         if ((this.position.charAt(1) == position.charAt(1))) {
             if ((this.position.charAt(1) - position.charAt(1)) != 0) throw new IllegalChessMoveException();
+            //if((this.position.charAt(0) - position.charAt(0)) < -8 || (this.position.charAt(0) - position.charAt(0)) > 8) throw new IllegalChessMoveException();
             this.position = position;
         }
         if (this.position.charAt(1) - position.charAt(1) > 0) {
@@ -71,6 +72,9 @@ public class Rook extends ChessPiece {
             if ((this.position.charAt(0) - position.charAt(0)) < -8) throw new IllegalChessMoveException();
             else this.position = position;
         }
-        this.position = position;
+        this.position = position;*/
+        if(this.position.charAt(0)==position.charAt(0)) this.position=position;
+        else if(this.position.charAt(1)==position.charAt(1)) this.position=position;
+        else throw new IllegalChessMoveException();
     }
 }

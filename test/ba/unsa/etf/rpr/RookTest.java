@@ -83,4 +83,12 @@ class RookTest {
         );
     }
 
+    @org.junit.jupiter.api.Test
+    void moveTwo() {
+        Rook r = new Rook("C2", ChessPiece.Color.BLACK);
+        assertThrows( IllegalChessMoveException.class,
+                () -> r.move("E3")
+        );
+    }
+
 }
