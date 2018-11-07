@@ -8,9 +8,9 @@ class KnightTest {
 
     @Test
     void move() {
-        Knight k = new Knight("B1", ChessPiece.Color.WHITE);
+        Knight k = new Knight("D4", ChessPiece.Color.WHITE);
         assertDoesNotThrow(
-                () -> k.move("C3")
+                () -> k.move("E6")
         );
 
     }
@@ -29,6 +29,24 @@ class KnightTest {
         Knight k = new Knight("G4", ChessPiece.Color.WHITE);
         assertDoesNotThrow(
                 () -> k.move("E3")
+        );
+
+    }
+
+    @Test
+    void move4() {
+        Knight k = new Knight("H1", ChessPiece.Color.WHITE);
+        assertDoesNotThrow(
+                () -> k.move("G3")
+        );
+
+    }
+
+    @Test
+    void move5() {
+        Knight k = new Knight("C7", ChessPiece.Color.WHITE);
+        assertDoesNotThrow(
+                () -> k.move("B5")
         );
 
     }
