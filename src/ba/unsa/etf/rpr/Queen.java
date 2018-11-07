@@ -47,15 +47,23 @@ public class Queen extends ChessPiece {
         } else if (position.charAt(0) > 'A' || position.charAt(0) < 'H') {
             if (position.charAt(1) < '1' || position.charAt(1) > '8') throw new IllegalArgumentException();
         } else throw new IllegalArgumentException();
-        int br = 0;
-        for (int i = 0; i < 'H' - position.charAt(0); i++) {
+        /*int br = 0;
+        for (int i = 0; i < 'H' - this.position.charAt(0); i++) {
             if ((this.position.charAt(0) - position.charAt(0) == i && this.position.charAt(1) - position.charAt(1) == i) || (this.position.charAt(0) - position.charAt(0) == (i*(-1)) && this.position.charAt(1) - position.charAt(1) == (i*(-1))))
                 br++;
         }
         if (br == 1) this.position = position;
         if (this.position.charAt(0) == position.charAt(0)) this.position = position;
         else if (this.position.charAt(1) == position.charAt(1)) this.position = position;
-        else throw new IllegalChessMoveException();
+        else throw new IllegalChessMoveException();*/
+        if(this.position.charAt(0) == position.charAt(0)) this.position=position;
+        else if(this.position.charAt(1) == position.charAt(1)) this.position=position;
+        else{
+            int razlika1 = Math.abs(this.position.charAt(0) - position.charAt(0));
+            int razlika2 = Math.abs(this.position.charAt(1) - position.charAt(1));
+            if(razlika1 != razlika2) throw new IllegalChessMoveException();
+            else this.position=position;
+        }
     }
 
 }

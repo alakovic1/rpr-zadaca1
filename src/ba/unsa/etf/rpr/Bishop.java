@@ -47,11 +47,13 @@ public class Bishop extends ChessPiece{
         } else if (position.charAt(0) > 'A' || position.charAt(0) < 'H') {
             if (position.charAt(1) < '1' || position.charAt(1) > '8') throw new IllegalArgumentException();
         } else throw new IllegalArgumentException();
-        if(this.position.charAt(0)!=position.charAt(0) && this.position.charAt(1)!=position.charAt(1)){
-            for(int i=0;i<'H'-position.charAt(0);i++){
-                if(this.position.charAt(1)-position.charAt(1) != i || this.position.charAt(1)-position.charAt(1) != (i*(-1))) throw new IllegalChessMoveException();
-            }
+        if(this.position.charAt(0) == position.charAt(0)) throw new IllegalChessMoveException();
+        else if(this.position.charAt(1) == position.charAt(1)) throw new IllegalChessMoveException();
+        else{
+            int razlika1 = Math.abs(this.position.charAt(0) - position.charAt(0));
+            int razlika2 = Math.abs(this.position.charAt(1) - position.charAt(1));
+            if(razlika1 != razlika2) throw new IllegalChessMoveException();
+            else this.position=position;
         }
-        else throw new IllegalChessMoveException();
     }
 }
