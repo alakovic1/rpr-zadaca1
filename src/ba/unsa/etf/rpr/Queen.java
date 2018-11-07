@@ -49,7 +49,14 @@ public class Queen extends ChessPiece{
         } else throw new IllegalArgumentException();
         if(this.position.charAt(0)==position.charAt(0)) this.position=position;
         else if(this.position.charAt(1)==position.charAt(1)) this.position=position;
-        //else if(){}
+        else if(this.position.charAt(0)!=position.charAt(0) && this.position.charAt(1)!=position.charAt(1)){
+            int br=0;
+            for(int i=0;i<'H'-position.charAt(0);i++){
+                if((this.position.charAt(0)-position.charAt(0) == i && this.position.charAt(0)-position.charAt(0) == -i) || (this.position.charAt(1)-position.charAt(1) == i && this.position.charAt(1)-position.charAt(1) == -i)) br++;
+            }
+            if(br==1) this.position=position;
+            else throw new IllegalChessMoveException();
+        }
         else throw new IllegalChessMoveException();
     }
 
