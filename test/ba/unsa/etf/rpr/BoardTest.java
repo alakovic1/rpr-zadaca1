@@ -50,9 +50,9 @@ class BoardTest {
             // Do nothing
         }
         assertTrue(b.isCheck(ChessPiece.Color.BLACK));
-    }*/
+    }
 
-    /*@Test
+    @Test
     // Will queen be moved by isCheck
     void isCheckUsable() {
         Board b = new Board();
@@ -76,9 +76,9 @@ class BoardTest {
                 b.move(Queen.class, ChessPiece.Color.WHITE, "D3");
             }
         );
-    }*/
+    }
 
-    /*@Test
+    @Test
     // No check
     void isCheck2() {
         Board b = new Board();
@@ -93,9 +93,9 @@ class BoardTest {
             // Do nothing
         }
         assertFalse(b.isCheck(ChessPiece.Color.BLACK));
-    }*/
+    }
 
-    /*@Test
+    @Test
     // Check by queen
     void isCheck3() {
         Board b = new Board();
