@@ -6,10 +6,10 @@ public class Board {
     public ChessPiece[][] board;
 
     public Board() {
-        ChessPiece[][] b = new ChessPiece[8][8];
-        for(int i=1;i<=b.length;i++){
-            for(int j=1;j<=b.length;j++){
-                b[i][j]=null;
+        ChessPiece[][] b = new ChessPiece[9][9];
+        for (int i = 1; i <= 8; i++) {
+            for (int j = 1; j <= 8; j++) {
+                b[i][j] = null;
             }
         }
         //Pawn
@@ -51,16 +51,50 @@ public class Board {
         b[8][3] = new Bishop("C8", ChessPiece.Color.BLACK);
         b[8][6] = new Bishop("F8", ChessPiece.Color.BLACK);
 
-        this.board=b;
+        this.board = b;
     }
 
-    public void move(Class type, ChessPiece.Color color, String position) {
+    public boolean jesteZauzeta(String position) {
+        boolean zauzeta = false;
+        for (int i = 1; i <= 8; i++) {
+            for (int j = 1; j <= 8; j++) {
+                if (this.board[i][j].getPosition() == position) zauzeta = true;
+            }
+        }
+        return zauzeta;
+    }
+
+    public void move(Class type, ChessPiece.Color color, String position) throws IllegalChessMoveException {
+        int br = 0;
+        for (int i = 1; i <= 8; i++) {
+            for (int j = 1; j <= 8; j++) {
+                try {
+                    if (this.board[i][j].getClass() == type && this.board[i][j].getColor() == color) {
+                        if (jesteZauzeta(position) && this.board[i][j].getColor() == color)
+                            throw new IllegalChessMoveException();
+                            //if(jesteZauzeta(position) && this.board[i][j].getColor()!=color) this.board[i][j].move(position);
+                        else this.board[i][j].move(position);
+                        br++;
+                        break;
+                    }
+                } catch (Exception izuzetak) {
+
+                }
+            }
+        }
+        if (br == 0) throw new IllegalChessMoveException();
     }
 
     public void move(String oldPosition, String newPosition) {
     }
 
     public boolean isCheck(ChessPiece.Color color) {
-        return true;
+        boolean jeste = false;
+        for (int i = 0; i <= 8; i++) {
+            for (int j = 0; j <= 8; j++) {
+                if (this.board[i][j].getColor() == color) jeste = true;
+            }
+        }
+        return jeste;
     }
 }

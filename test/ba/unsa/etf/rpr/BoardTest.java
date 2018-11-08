@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTest {
 
-    /*@Test
+    @Test
     // Is the board usable after isCheck
     void someLegalMoves() {
         Board b = new Board();
@@ -37,7 +37,7 @@ class BoardTest {
         );
     }
 
-    @Test
+    /*@Test
     // Check by pawn
     void isCheck() {
         Board b = new Board();
@@ -50,9 +50,9 @@ class BoardTest {
             // Do nothing
         }
         assertTrue(b.isCheck(ChessPiece.Color.BLACK));
-    }
+    }*/
 
-    @Test
+    /*@Test
     // Will queen be moved by isCheck
     void isCheckUsable() {
         Board b = new Board();
@@ -76,9 +76,9 @@ class BoardTest {
                 b.move(Queen.class, ChessPiece.Color.WHITE, "D3");
             }
         );
-    }
+    }*/
 
-    @Test
+    /*@Test
     // No check
     void isCheck2() {
         Board b = new Board();
@@ -93,9 +93,9 @@ class BoardTest {
             // Do nothing
         }
         assertFalse(b.isCheck(ChessPiece.Color.BLACK));
-    }
+    }*/
 
-    @Test
+    /*@Test
     // Check by queen
     void isCheck3() {
         Board b = new Board();
@@ -115,7 +115,7 @@ class BoardTest {
             // Do nothing
         }
         assertTrue(b.isCheck(ChessPiece.Color.BLACK));
-    }
+    }*/
 
     @Test
     // Queen, bishop and rook can't jump pieces
@@ -140,7 +140,7 @@ class BoardTest {
 
     // Same test with other move method
 
-    @Test
+    /*@Test
     // Is the board usable after isCheck
     void someLegalMoves1() {
         Board b = new Board();
@@ -154,9 +154,9 @@ class BoardTest {
                     b.move("E2", "E3");
                 }
         );
-    }
+    }*/
 
-    @Test
+    /*@Test
     // Pawn eats diagonally, check by queen
     void pawnDiagonal1() {
         Board b = new Board();
@@ -169,9 +169,9 @@ class BoardTest {
                     b.move("D7", "C8");
                 }
         );
-    }
+    }*/
 
-    @Test
+    /*@Test
     // Check by pawn
     void isCheck1() {
         Board b = new Board();
@@ -184,9 +184,9 @@ class BoardTest {
             // Do nothing
         }
         assertTrue(b.isCheck(ChessPiece.Color.BLACK));
-    }
+    }*/
 
-    @Test
+    /*@Test
     // No check
     void isCheck12() {
         Board b = new Board();
@@ -201,9 +201,9 @@ class BoardTest {
             // Do nothing
         }
         assertFalse(b.isCheck(ChessPiece.Color.BLACK));
-    }
+    }*/
 
-    @Test
+    /*@Test
     // Check by queen
     void isCheck13() {
         Board b = new Board();
@@ -223,9 +223,9 @@ class BoardTest {
             // Do nothing
         }
         assertTrue(b.isCheck(ChessPiece.Color.BLACK));
-    }
+    }*/
 
-    @Test
+    /*@Test
     // Queen, bishop and rook can't jump pieces
     void jumpPiece1() {
         Board b = new Board();
@@ -243,9 +243,9 @@ class BoardTest {
                         () -> b.move("D8", "A5")
                 )
         );
-    }
+    }*/
 
-    @Test
+    /*@Test
     // Check by queen
     void isCheckUsable1() {
         Board b = new Board();
