@@ -47,7 +47,7 @@ public class Pawn extends ChessPiece {
         } else if (position.charAt(0) > 'A' || position.charAt(0) < 'H') {
             if (position.charAt(1) < '1' || position.charAt(1) > '8') throw new IllegalArgumentException();
         } else throw new IllegalArgumentException();
-        //crne figure su na pozicijama 7 i 8, a bijele na 1 i 2
+        //na pocetku su crne figure su na pozicijama 7 i 8, a bijele na 1 i 2
         if (this.position.charAt(0) != position.charAt(0))
             throw new IllegalChessMoveException();
         else if ((this.position.charAt(1) == '1' && getColor() == Color.WHITE) || (this.position.charAt(1) == '8' && getColor() == Color.BLACK))
