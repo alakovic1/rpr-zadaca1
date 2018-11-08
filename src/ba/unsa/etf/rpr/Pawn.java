@@ -47,11 +47,14 @@ public class Pawn extends ChessPiece {
         } else if (position.charAt(0) > 'A' || position.charAt(0) < 'H') {
             if (position.charAt(1) < '1' || position.charAt(1) > '8') throw new IllegalArgumentException();
         } else throw new IllegalArgumentException();
-        if (this.position.charAt(0) != position.charAt(0)) throw new IllegalChessMoveException();
-        else if (this.position.charAt(1) > position.charAt(1)) throw new IllegalChessMoveException();
-        else if (position.charAt(1) - this.position.charAt(1) == 2 && this.position.charAt(1) == '2')
+        if(this.position.charAt(0) != position.charAt(0)) throw new IllegalChessMoveException(); //crne figure su na pozicijama 7 i 8, a bijele na 1 i 2
+        else if((this.position.charAt(1)=='1' && getColor()==Color.WHITE) || (this.position.charAt(1)=='8' && getColor()==Color.BLACK)) throw new IllegalChessMoveException();
+        else if (position.charAt(1) - this.position.charAt(1) == 2 && this.position.charAt(1) == '2' && getColor()==Color.WHITE)
             this.position = position;
-        else if (position.charAt(1) - this.position.charAt(1) == 1) this.position = position;
+        else if (position.charAt(1) - this.position.charAt(1) == 1 && getColor()==Color.WHITE) this.position = position;
+        else if (position.charAt(1) - this.position.charAt(1) == -2 && this.position.charAt(1) == '7' && getColor()==Color.BLACK)
+            this.position = position;
+        else if (position.charAt(1) - this.position.charAt(1) == -1 && getColor()==Color.BLACK) this.position = position;
         else throw new IllegalChessMoveException();
     }
 }

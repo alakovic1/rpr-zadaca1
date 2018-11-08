@@ -43,9 +43,9 @@ class PawnTest {
 
     @Test
     void move4() {
-        Pawn p = new Pawn("G2", ChessPiece.Color.WHITE);
+        Pawn p = new Pawn("G7", ChessPiece.Color.BLACK);
         assertDoesNotThrow(
-                () -> p.move("G4")
+                () -> p.move("G5")
         );
 
     }
@@ -55,6 +55,24 @@ class PawnTest {
         Pawn p = new Pawn("F3", ChessPiece.Color.BLACK);
         assertThrows( IllegalChessMoveException.class,
                 () -> p.move("A4")
+        );
+
+    }
+
+    @Test
+    void move6() {
+        Pawn p = new Pawn("H7", ChessPiece.Color.BLACK);
+        assertDoesNotThrow(
+                () -> p.move("H6")
+        );
+
+    }
+
+    @Test
+    void move7() {
+        Pawn p = new Pawn("A8", ChessPiece.Color.BLACK);
+        assertThrows( IllegalChessMoveException.class,
+                () -> p.move("A7")
         );
 
     }
