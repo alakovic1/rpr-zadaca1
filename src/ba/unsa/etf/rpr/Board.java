@@ -71,14 +71,14 @@ public class Board {
             int legalan = 0;
             for (int i = 1; i <= 8; i++) {
                 for (int j = 1; j <= 8; j++) {
-                    if (this.board[i][j].getClass() == type && this.board[i][j].getColor() == color) {
-                        if (jesteZauzeta(position) && this.board[i][j].getColor() == color)
-                            throw new IllegalChessMoveException();
-                            //if(jesteZauzeta(position) && this.board[i][j].getColor()!=color) this.board[i][j].move(position);
-                        else this.board[i][j].move(position);
-                        legalan++;
-                        break;
-                    }
+                        if (this.board[i][j] != null && this.board[i][j].getClass() == type && this.board[i][j].getColor() == color) {
+                            if (jesteZauzeta(position) && this.board[i][j].getColor() == color){}
+                                //throw new IllegalChessMoveException();
+                                //if(jesteZauzeta(position) && this.board[i][j].getColor()!=color) this.board[i][j].move(position);
+                                this.board[i][j].move(position);
+                            legalan++;
+                            break;
+                        }
                 }
 
             }
@@ -97,7 +97,7 @@ public class Board {
         for (int i = 1; i <= 8; i++) {
             for (int j = 1; j <= 8; j++) {
                 if (this.board[i][j] != null) {
-                    if (this.board[i][j].getColor().equals(color)) jeste = true;
+                    if (this.board[i][j].getColor()==color) jeste = true;
                 }
             }
         }
