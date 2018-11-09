@@ -50,6 +50,15 @@ class BishopTest {
 
     }
 
+    @Test
+    void move6() {
+        Bishop b = new Bishop("F1", ChessPiece.Color.WHITE);
+        assertDoesNotThrow(
+                () -> b.move("A6")
+        );
+
+    }
+
     @org.junit.jupiter.api.Test
     void constructor1() {
         assertThrows(

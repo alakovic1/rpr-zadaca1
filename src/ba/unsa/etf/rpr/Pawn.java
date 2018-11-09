@@ -34,6 +34,7 @@ public class Pawn extends ChessPiece {
         return color;
     }
 
+    //pijun se pomjera dijagonalno ako je pozicija zauzeta za figurum suprotne boje
     /*public boolean PawnDiagonal(ChessPiece[][] board,String position,ChessPiece.Color color){
         if(color == Color.WHITE){
             for(int i=1;i<=8;i++){
@@ -65,7 +66,9 @@ public class Pawn extends ChessPiece {
         } else if (position.charAt(0) > 'A' || position.charAt(0) < 'H') {
             if (position.charAt(1) < '1' || position.charAt(1) > '8') throw new IllegalArgumentException();
         } else throw new IllegalArgumentException();
+
         //na pocetku su crne figure na pozicijama 7 i 8, a bijele na 1 i 2
+
         /*if (this.position.charAt(0) != position.charAt(0))
             throw new IllegalChessMoveException();*/
         if ((this.position.charAt(1) == '1' && getColor() == Color.WHITE) || (this.position.charAt(1) == '8' && getColor() == Color.BLACK))

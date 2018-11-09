@@ -54,6 +54,7 @@ public class Board {
         this.board = b;
     }
 
+    //ispitivanje da li je pozicija zauzeta
     public boolean jesteZauzeta(String position) {
         boolean zauzeta = false;
         for (int i = 1; i <= 8; i++) {
@@ -96,8 +97,8 @@ public class Board {
         boolean jeste = false;
         for (int i = 1; i <= 8; i++) {
             for (int j = 1; j <= 8; j++) {
-                if (this.board[i][j] != null) {
-                    if (this.board[i][j].getColor()==color) jeste = true;
+                if (this.board[i][j] != null) { //da li se nalazi nesto na toj poziciji
+                    if (this.board[i][j].getColor()==color) jeste = true; //da li je to ta boja
                 }
             }
         }
