@@ -54,40 +54,37 @@ public class Board {
         this.board = b;
     }
 
-    public boolean jesteZauzeta(String position) { 
+    public boolean jesteZauzeta(String position) {
         boolean zauzeta = false;
         for (int i = 1; i <= 8; i++) {
             for (int j = 1; j <= 8; j++) {
-                if (this.board[i][j].getPosition().equals(position)) {
-                    if(this.board[i][j]!=null) zauzeta = true;
+                if (this.board[i][j] != null) {
+                    if (this.board[i][j].getPosition().equals(position)) zauzeta = true;
                 }
             }
         }
         return zauzeta;
     }
 
-    public void move(Class type, ChessPiece.Color color, String position) throws IllegalChessMoveException {
+    public void move(Class type, ChessPiece.Color color, String position)  {
         try {
-            int br = 0;
+            int legalan = 0;
             for (int i = 1; i <= 8; i++) {
                 for (int j = 1; j <= 8; j++) {
-                    try {
-                        if (this.board[i][j].getClass() == type && this.board[i][j].getColor() == color) {
-                            if (jesteZauzeta(position) && this.board[i][j].getColor() == color)
-                                throw new IllegalChessMoveException();
-                                //if(jesteZauzeta(position) && this.board[i][j].getColor()!=color) this.board[i][j].move(position);
-                            else this.board[i][j].move(position);
-                            br++;
-                            break;
-                        }
-                    } catch (Exception izuzetak) {
-
+                    if (this.board[i][j].getClass() == type && this.board[i][j].getColor() == color) {
+                        if (jesteZauzeta(position) && this.board[i][j].getColor() == color)
+                            throw new IllegalChessMoveException();
+                            //if(jesteZauzeta(position) && this.board[i][j].getColor()!=color) this.board[i][j].move(position);
+                        else this.board[i][j].move(position);
+                        legalan++;
+                        break;
                     }
                 }
-            }
-            if (br == 0) throw new IllegalChessMoveException();
-        } catch (Exception izuzetak) {
 
+            }
+            if (legalan == 0) throw new IllegalChessMoveException();
+        } catch (IllegalChessMoveException e) {
+            e.printStackTrace();
         }
     }
 

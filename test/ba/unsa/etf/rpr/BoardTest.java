@@ -37,7 +37,7 @@ class BoardTest {
         );
     }
 
-    /*@Test
+    @Test
     // Check by pawn
     void isCheck() {
         Board b = new Board();
@@ -115,7 +115,7 @@ class BoardTest {
             // Do nothing
         }
         assertTrue(b.isCheck(ChessPiece.Color.BLACK));
-    }*/
+    }
 
     @Test
     // Queen, bishop and rook can't jump pieces
