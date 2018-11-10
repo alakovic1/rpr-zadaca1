@@ -73,11 +73,30 @@ public class Board {
             for (int i = 1; i <= 8; i++) {
                 for (int j = 1; j <= 8; j++) {
                         if (this.board[i][j] != null && this.board[i][j].getClass() == type && this.board[i][j].getColor() == color) {
-                            if (jesteZauzeta(position) && this.board[i][j].getColor() == color){}
-                                //throw new IllegalChessMoveException();
-                                //if(jesteZauzeta(position) && this.board[i][j].getColor()!=color) this.board[i][j].move(position);
+                            if(this.board[i][j].getClass()==Pawn.class && (board[i+1][j+1]!=null || board[i+1][j-1]!=null)){
+                                /*if(this.board[i][j].getColor()== ChessPiece.Color.WHITE){
+                                    if(this.board[i+1][j+1].getColor()== ChessPiece.Color.BLACK){
+                                        Pawn.PawnDiagonal(position, ChessPiece.Color.WHITE);
+                                    }
+                                    else if(this.board[i+1][j-1].getColor()== ChessPiece.Color.BLACK){
+                                        Pawn.PawnDiagonal(position, ChessPiece.Color.WHITE);
+                                    }
+                                }
+                                else if(this.board[i][j].getColor()== ChessPiece.Color.BLACK) {
+                                    if (this.board[i - 1][j - 1].getColor() == ChessPiece.Color.WHITE) {
+                                        Pawn.PawnDiagonal(position, ChessPiece.Color.BLACK);
+                                    } else if (this.board[i - 1][j + 1].getColor() == ChessPiece.Color.WHITE) {
+                                        Pawn.PawnDiagonal(position, ChessPiece.Color.BLACK);
+                                    }
+                                }*/
+                                Pawn.PawnDiagonal(board,position,color); //poziva se kad treba da jede figuru
+                            }
+                            else {
+                                if(jesteZauzeta(position) && this.board[i][j].getColor().equals(color)) throw new IllegalChessMoveException();
                                 this.board[i][j].move(position);
-                            legalan++;
+                                this.board[i][j]=null;
+                                legalan++;
+                            }
                             break;
                         }
                 }
@@ -90,7 +109,19 @@ public class Board {
     }
 
     public void move(String oldPosition, String newPosition) {
-
+        try {
+            boolean nalazi = false;
+            for (int i = 1; i <= 8; i++) {
+                for (int j = 1; j <= 8; j++) {
+                    //if (this.board[i][j] != null) {
+                        if (this.board[i][j].getPosition().equals(oldPosition) && this.board[i][j]!=null) nalazi = true;
+                    //}
+                }
+            }
+            if(!nalazi) throw new IllegalArgumentException();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
     }
 
     public boolean isCheck(ChessPiece.Color color) {

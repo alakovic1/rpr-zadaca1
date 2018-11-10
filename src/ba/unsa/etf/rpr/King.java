@@ -51,22 +51,22 @@ public class King extends ChessPiece {
             if ((this.position.charAt(0) - position.charAt(0)) != 0) throw new IllegalChessMoveException();
             this.position = position;
         }
-        if (this.position.charAt(0) - position.charAt(0) > 0) {
+        else if (this.position.charAt(0) - position.charAt(0) > 0) {
             if ((this.position.charAt(0) - position.charAt(0)) != 1) throw new IllegalChessMoveException();
             else this.position = position;
         }
-        if (this.position.charAt(0) - position.charAt(0) < 0) {
+        else if (this.position.charAt(0) - position.charAt(0) < 0) {
             if ((this.position.charAt(0) - position.charAt(0)) != -1) throw new IllegalChessMoveException();
             else this.position = position;
         }
-        if (this.position.charAt(1) - position.charAt(1) > 0) {
+        else if (this.position.charAt(1) - position.charAt(1) > 0) {
             if ((this.position.charAt(1) - position.charAt(1)) != 1) throw new IllegalChessMoveException();
             else this.position = position;
         }
-        if (this.position.charAt(1) - position.charAt(1) < 0) {
+        else if (this.position.charAt(1) - position.charAt(1) < 0) {
             if ((this.position.charAt(1) - position.charAt(1)) != -1) throw new IllegalChessMoveException();
             else this.position = position;
         }
-        this.position = position;
+        else this.position = position;
     }
 }
