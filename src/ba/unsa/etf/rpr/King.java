@@ -47,6 +47,8 @@ public class King extends ChessPiece {
         } else if (position.charAt(0) > 'A' || position.charAt(0) < 'H') {
             if (position.charAt(1) < '1' || position.charAt(1) > '8') throw new IllegalArgumentException();
         } else throw new IllegalArgumentException();
+
+        //King se moze kretati na sve strane, ali samo po jedan potez
         if ((this.position.charAt(0) == position.charAt(0))) {
             if ((this.position.charAt(0) - position.charAt(0)) != 0) throw new IllegalChessMoveException();
             this.position = position;

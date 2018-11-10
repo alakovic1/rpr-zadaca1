@@ -9,7 +9,7 @@ public class Board {
         ChessPiece[][] b = new ChessPiece[10][10];
         for (int i = 1; i <= 8; i++) {
             for (int j = 1; j <= 8; j++) {
-                b[i][j] = null;
+                b[i][j] = null; //kreiranje table
             }
         }
         //Pawn
@@ -67,13 +67,13 @@ public class Board {
         return zauzeta;
     }
 
-    public void move(Class type, ChessPiece.Color color, String position)  {
+    public void move(Class type, ChessPiece.Color color, String position) {
         try {
             int legalan = 0;
             for (int i = 1; i <= 8; i++) {
                 for (int j = 1; j <= 8; j++) {
-                        if (this.board[i][j] != null && this.board[i][j].getClass() == type && this.board[i][j].getColor() == color) {
-                            if(this.board[i][j].getClass()==Pawn.class && (board[i+1][j+1]!=null || board[i+1][j-1]!=null)){
+                    if (this.board[i][j] != null && this.board[i][j].getClass() == type && this.board[i][j].getColor() == color) {
+                        if (this.board[i][j].getClass() == Pawn.class && (board[i + 1][j + 1] != null || board[i + 1][j - 1] != null)) {
                                 /*if(this.board[i][j].getColor()== ChessPiece.Color.WHITE){
                                     if(this.board[i+1][j+1].getColor()== ChessPiece.Color.BLACK){
                                         Pawn.PawnDiagonal(position, ChessPiece.Color.WHITE);
@@ -89,20 +89,20 @@ public class Board {
                                         Pawn.PawnDiagonal(position, ChessPiece.Color.BLACK);
                                     }
                                 }*/
-                                Pawn.PawnDiagonal(board,position,color); //poziva se kad treba da jede figuru
-                            }
-                            else {
-                                if(jesteZauzeta(position) && this.board[i][j].getColor().equals(color)) throw new IllegalChessMoveException();
-                                this.board[i][j].move(position);
-                                this.board[i][j]=null;
-                                legalan++;
-                            }
-                            break;
+                            Pawn.PawnDiagonal(board, position, color); //poziva se kad treba da jede figuru
+                        } else {
+                            if (jesteZauzeta(position) && this.board[i][j].getColor().equals(color))
+                                throw new IllegalChessMoveException(); //ako je pozicija vec zauzeta sa figurom iste boje
+                            this.board[i][j].move(position); //poziva se move odredjene figure
+                            this.board[i][j] = null; //oslobadja poziciju koja je bila zauzeta
+                            legalan++;
                         }
+                        break;
+                    }
                 }
 
             }
-            if (legalan == 0) throw new IllegalChessMoveException();
+            if (legalan == 0) throw new IllegalChessMoveException(); //ako nije bio nijedan legalan potez
         } catch (IllegalChessMoveException e) {
             e.printStackTrace();
         }
@@ -113,12 +113,10 @@ public class Board {
             boolean nalazi = false;
             for (int i = 1; i <= 8; i++) {
                 for (int j = 1; j <= 8; j++) {
-                    //if (this.board[i][j] != null) {
-                        if (this.board[i][j].getPosition().equals(oldPosition) && this.board[i][j]!=null) nalazi = true;
-                    //}
+                    if (this.board[i][j].getPosition().equals(oldPosition) && this.board[i][j] != null) nalazi = true; //da li se nalazi neka figura na oldPosition
                 }
             }
-            if(!nalazi) throw new IllegalArgumentException();
+            if (!nalazi) throw new IllegalArgumentException(); //ako je nalazi false baca izuzetak jer nema na toj poziciji figure
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
         }
@@ -129,7 +127,7 @@ public class Board {
         for (int i = 1; i <= 8; i++) {
             for (int j = 1; j <= 8; j++) {
                 if (this.board[i][j] != null) { //da li se nalazi nesto na toj poziciji
-                    if (this.board[i][j].getColor()==color) jeste = true; //da li je to ta boja
+                    if (this.board[i][j].getColor() == color) jeste = true; //da li je to ta boja
                 }
             }
         }

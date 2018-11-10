@@ -96,12 +96,12 @@ public class Pawn extends ChessPiece {
             if (position.charAt(1) < '1' || position.charAt(1) > '8') throw new IllegalArgumentException();
         } else throw new IllegalArgumentException();
 
+        //Pawn se moze kretati po jedan potez naprijed, osim ako se nalazi u pocetnom polozaju kada moze dva
         //na pocetku su crne figure na pozicijama 7 i 8, a bijele na 1 i 2
-
-        /*if (this.position.charAt(0) != position.charAt(0))
+        /*if (this.position.charAt(0) != position.charAt(0)) //ne treba ovaj slucaj jer treba da se pozove funkcija PawnDiagonal u Boardu
             throw new IllegalChessMoveException();*/
         if ((pozicijaPawn.charAt(1) == '1' && getColor() == Color.WHITE) || (pozicijaPawn.charAt(1) == '8' && getColor() == Color.BLACK))
-            throw new IllegalChessMoveException();
+            throw new IllegalChessMoveException(); //ne moze se nalaziti na 1 ili 8 (na pocetku) pijun jer mu je pocetna pozicija 2 ili 7
         else if (position.charAt(1) - pozicijaPawn.charAt(1) == 2 && pozicijaPawn.charAt(1) == '2' && getColor() == Color.WHITE)
             pozicijaPawn = position;
         else if (position.charAt(1) - pozicijaPawn.charAt(1) == 1 && getColor() == Color.WHITE)

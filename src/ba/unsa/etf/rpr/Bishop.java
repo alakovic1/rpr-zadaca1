@@ -47,12 +47,14 @@ public class Bishop extends ChessPiece {
         } else if (position.charAt(0) > 'A' || position.charAt(0) < 'H') {
             if (position.charAt(1) < '1' || position.charAt(1) > '8') throw new IllegalArgumentException();
         } else throw new IllegalArgumentException();
-        if (this.position.charAt(0) == position.charAt(0)) throw new IllegalChessMoveException();
+
+        //Bishop se krece samo dijagonalno
+        if (this.position.charAt(0) == position.charAt(0)) throw new IllegalChessMoveException(); //slova i brojevi nikad ne mogu biti isti
         else if (this.position.charAt(1) == position.charAt(1)) throw new IllegalChessMoveException();
         else if ((this.position.charAt(0) != position.charAt(0) && (this.position.charAt(1) != position.charAt(1)))) {
-            int razlika1 = Math.abs(this.position.charAt(0) - position.charAt(0));
-            int razlika2 = Math.abs(this.position.charAt(1) - position.charAt(1));
-            if (razlika1 != razlika2) throw new IllegalChessMoveException();
+            int razlika1 = Math.abs(this.position.charAt(0) - position.charAt(0)); //apsolutna vrijednost razlike slova pozicije
+            int razlika2 = Math.abs(this.position.charAt(1) - position.charAt(1)); //apsolutna vrijednost razlike brojeva pozicije
+            if (razlika1 != razlika2) throw new IllegalChessMoveException(); //razlika aps vrijednosti mora biti jednaka da bi bio potez validan
             else this.position = position;
         } else throw new IllegalChessMoveException();
     }

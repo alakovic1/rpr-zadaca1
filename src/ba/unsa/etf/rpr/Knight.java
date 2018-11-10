@@ -47,6 +47,8 @@ public class Knight extends ChessPiece {
         } else if (position.charAt(0) > 'A' || position.charAt(0) < 'H') {
             if (position.charAt(1) < '1' || position.charAt(1) > '8') throw new IllegalArgumentException();
         } else throw new IllegalArgumentException();
+
+        //Knight se moze kretati kao slovo L, svi slucajevi su ispisani ispod:
         if (this.position.charAt(0) == position.charAt(0)) throw new IllegalChessMoveException();
         else if (this.position.charAt(1) == position.charAt(1)) throw new IllegalChessMoveException();
         else if ((this.position.charAt(0) - position.charAt(0) == -2) && (this.position.charAt(1) - position.charAt(1) == -1))
